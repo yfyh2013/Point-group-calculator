@@ -1,5 +1,5 @@
 %实现输入点群自动返回相应的正交标表与
-function [Chart1,Dege1] = Return_point_group()
+function [Chart1,Dege1,ReRe1] = Return_point_group()
 point_group = input('请输入点群种类','s');
 Chart1=[];Dege1=[];
 if strcmp(point_group,'c3v')==1
@@ -11,6 +11,9 @@ if strcmp(point_group,'c3v')==1
     Dege1=[1,0,0;
     0,2,0;
     0,0,3];
+    %ReRe为reducible representation，即可约表示
+    ReRe1={'A1' 'A2' 'E'};
+
 end
 if strcmp(point_group,'oh')==1
     Chart1=[1,1,1,1,1,1,1,1,1,1;
@@ -33,6 +36,7 @@ if strcmp(point_group,'oh')==1
         0,0,0,0,0,0,0,8,0,0;
         0,0,0,0,0,0,0,0,3,0;
         0,0,0,0,0,0,0,0,0,6];
+    ReRe1={'A1g' 'A2g' 'Eg' 'T1g' 'T2g' 'A1u' 'A2u' 'Eu' 'T1u' 'T2u'};
 end
 if strcmp(point_group,'d2h')==1
     Chart1=[1,1,1,1,1,1,1,1;
@@ -44,6 +48,7 @@ if strcmp(point_group,'d2h')==1
         1,-1,1,-1,-1,1,-1,1;
         1,-1,-1,1,-1,1,1,-1];
     Dege1=eye(8);
+    ReRe1={'Ag' 'B1g' 'B2g' 'B3g' 'Au' 'B1u' 'B2u' 'B3u'};
 end
 if strcmp(point_group,'d4h')==1
     Chart1=[1,1,1,1,1,1,1,1,1,1;
@@ -67,6 +72,7 @@ if strcmp(point_group,'d4h')==1
         0,0,0,0,0,0,0,1,0,0;
         0,0,0,0,0,0,0,0,2,0;
         0,0,0,0,0,0,0,0,0,2];
+    ReRe1={'A1g' 'A2g' 'B1g' 'B2g' 'Eg' 'A1u' 'A2u' 'B1u' 'B2u' 'Eu'};
 end
 if strcmp(point_group,'td')==1
     Chart1=[1,1,1,1,1;
@@ -79,4 +85,5 @@ if strcmp(point_group,'td')==1
         0,0,3,0,0;
         0,0,0,6,0;
         0,0,0,0,6];
+    ReRe1={'A1' 'A2' 'E' 'T1' 'T2'};
 end

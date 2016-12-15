@@ -19,6 +19,7 @@ while i<=length(X);
     Y(i)=1/h*Chart1(i,:)*Dege1*X;
     i=i+1;
 end
+%判断计算出的系数是否为整数，若有整数，则说明输入的可约表示有误，用flag参数表明出现错误
 i=1;flag=1;
 while i<=length(Y);
 	if rem(Y(i),1)~=0
@@ -28,6 +29,8 @@ while i<=length(Y);
     end
     i=i+1;
 end
+%由flag阐述判断是否输出结果
+%格式化输出结果，将系数与相应的不可约表示结合
 i=1;
 while i<=length(Y)&&flag==1;
     if Y(i)~=0

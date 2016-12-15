@@ -32,7 +32,7 @@ i=1;
 while i<=length(Y)&&flag==1;
     if Y(i)~=0
         fprintf('%1.0f%s',Y(i),ReRe1{i});
-        fprintf(' + ');
+        fprintf('   ');
     end
     i=i+1;
 end

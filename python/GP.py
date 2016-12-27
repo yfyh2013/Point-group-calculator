@@ -60,7 +60,7 @@ class GroupPointCalculator:
 
 if __name__ == '__main__':
     GP = GroupPointCalculator()
-    print('目前支持如下点群的计算(C3v Oh Td)')
+    print('目前支持如下点群的计算(C3v D3h Oh Td)')
     while 1:
         try:
             GP.calculator()

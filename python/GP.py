@@ -19,27 +19,27 @@ class GroupPointCalculator:
         self.Chart, self.Dege, self.IrReRe = Get_point_group.get_point_group()
 
         # 获取可约表示
-        print('请输入可约表示（数与数之间逗号隔开）')
-        self.ReRe = list(input())
+        self.ReRe = list(input('请输入可约表示（数与数之间逗号隔开）\n'))
         if len(self.ReRe) != len(self.IrReRe):
             print('输入的可约表示不正确')
 
         # 计算h 总操作数
         i = 0
         # 总操作数转为浮点型（系数实际不为整数的答案应该是错误的，但由于python整数除法默认结果也为整数，将导致错误）
-        h = 0.0
+        self.h = 0.0
         while i <= len(self.ReRe) - 1:
             self.h += self.Dege[i, i]
             i += 1
 
         # 计算可约表示系数
         i = 0
+        # 复位Result，否则答案会保持在第一个计算的结果
         self.Result = []
         while i <= len(self.ReRe) - 1:
             self.Result.append(numpy.dot(numpy.dot(self.Chart[i], self.Dege), self.ReRe) * 1 / self.h)
             i += 1
 
-        # 判断答案是否正确
+        # 判断答案是否正确，包含非整数、负数均表示答案出错
         i = 0
         flag = 0
         while i <= len(self.Result) - 1:

@@ -4,8 +4,7 @@ import numpy
 
 
 def get_point_group():
-    print ('请输入点群种类')
-    point_group = raw_input()
+    point_group = raw_input('请输入点群种类\n')
     if point_group in ['c3v', 'C3v', 'C3V']:
         Chart = numpy.array([[1, 1, 1],
                              [1, 1, -1],

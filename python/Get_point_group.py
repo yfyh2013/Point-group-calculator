@@ -6,11 +6,15 @@ import numpy
 def get_point_group():
     print ('请输入点群种类')
     point_group = raw_input()
-    if point_group == 'c3v':
-        Chart = numpy.array([[1, 1, 1], [1, 1, -1], [2, -1, 0]])  # Chart 为正交标表
-        Dege = numpy.array([[1, 0, 0], [0, 2, 0], [0, 0, 3]])  # Dege 为简并度
+    if point_group in ['c3v', 'C3v', 'C3V']:
+        Chart = numpy.array([[1, 1, 1],
+                             [1, 1, -1],
+                             [2, -1, 0]])  # Chart 为正交标表
+        Dege = numpy.array([[1, 0, 0],
+                            [0, 2, 0],
+                            [0, 0, 3]])  # Dege 为简并度
         IrReRe = ['A1', 'A2', 'E']  # IrReRe为unreducible representation，即不可约表示
-    if point_group == 'oh':
+    elif point_group == ['oh', 'Oh', 'OH']:
         Chart = numpy.array([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                              [1, 1, -1, -1, 1, 1, -1, 1, 1, -1],
                              [2, -1, 0, 0, 2, 2, 0, -1, 2, 0],
@@ -32,7 +36,7 @@ def get_point_group():
                             [0, 0, 0, 0, 0, 0, 0, 0, 3, 0],
                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 6]])
         IrReRe = ['A1g', 'A2g', 'Eg', 'T1g', 'T2g', 'A1u', 'A2u', 'Eu', 'T1u', 'T2u']
-    if point_group == 'td':
+    elif point_group == ['td', 'Td', 'TD']:
         Chart = numpy.array([[1, 1, 1, 1, 1],
                              [1, 1, 1, -1, -1],
                              [2, -1, 2, 0, 0],
@@ -44,5 +48,7 @@ def get_point_group():
                             [0, 0, 0, 6, 0],
                             [0, 0, 0, 0, 6]])
         IrReRe = ['A1', 'A2', 'E', 'T1', 'T2']
+    else:
+        print ('点群输入错误')
 
     return Chart, Dege, IrReRe
